@@ -62,7 +62,7 @@ execute(PgSock, #connect{opts = #{username := Username} = Opts, stage = connect}
            {Opts4, PgSock3} =
                case Opts of
                    #{replication := Replication}  ->
-                       {[Opts3 | ["replication", 0, Replication, 0]],
+                       {[Opts3],
                         epgsql_sock:init_replication_state(PgSock2)};
                    _ -> {Opts3, PgSock2}
                end,
